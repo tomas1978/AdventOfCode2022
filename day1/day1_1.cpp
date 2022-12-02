@@ -4,25 +4,10 @@
 #include<vector>
 using namespace std;
 
-void readFromFile() 
-{
-    int n=0;
-    char c;
-    ifstream f1("input.txt");
-    while(f1.get(c))
-    {
-        string line="";
-        //cout.put(c);
-        if(c=='\n')
-            n++;
-    }
-    cout<<"Antal rader: "<<n;
-}
-
 int main()
 {
     int sum=0;
-    vector<string> numbers;
+    vector<int> numbers;
     ifstream infile("input.txt");
     string line;
     while(getline(infile, line)) 
@@ -35,12 +20,14 @@ int main()
             numbers.push_back(sum);
             sum=0;
         }
+        cout<<numbers.size(); 
 
         istringstream iss(line);
-        numbers.push_back(line);
+        
         int a, b;
         if(!(iss >> a >> b)) {break;}
     }
-    //readFromFile();
+    for(int i=0;i<numbers.size();i++)
+        cout<<numbers.at(i)<<endl;
     return 0;
 }
