@@ -12,22 +12,29 @@ int main()
     string line;
     while(getline(infile, line)) 
     {
-        if(!line.compare("\n")) {
-            sum+=stoi(line);
+        if(line.empty()) {
+			//cout<<sum<<endl;
+            numbers.push_back(sum);
+            sum=0;	
         }
         else
         {
-            numbers.push_back(sum);
-            sum=0;
+			
+			sum+=stoi(line);
+			//cout<<(int)stoi(line)<<endl;
+			//cout<<sum<<endl;
         }
-        cout<<numbers.size(); 
+        //cout<<numbers.size(); 
 
-        istringstream iss(line);
+        //istringstream iss(line);
         
-        int a, b;
-        if(!(iss >> a >> b)) {break;}
+        //int a, b;
+        //if(!(iss >> a >> b)) {break;}
     }
-    for(int i=0;i<numbers.size();i++)
-        cout<<numbers.at(i)<<endl;
+    for(vector<int>::iterator i=numbers.begin();i!=numbers.end();i++)
+		cout<<*i<<endl;
+	
+	//for(int i=0;i<numbers.at(i);i++)
+    //    cout<<numbers.at(i)<<endl;
     return 0;
 }
