@@ -4,37 +4,35 @@
 #include<vector>
 using namespace std;
 
+int findMostCalories(vector<int> calories) 
+{
+    int greatestValue=0;
+    for(vector<int>::iterator i=calories.begin();i!=calories.end();i++) {
+        if ((*i)>greatestValue)
+            greatestValue=*i;
+    }
+    return greatestValue;
+}
+
 int main()
 {
     int sum=0;
-    vector<int> numbers;
+    vector<int> calorySums;
     ifstream infile("input.txt");
     string line;
+
+    //Calculate calory sum of each elf, store in vector
     while(getline(infile, line)) 
     {
         if(line.empty()) {
-			//cout<<sum<<endl;
-            numbers.push_back(sum);
+            calorySums.push_back(sum);
             sum=0;	
         }
         else
-        {
-			
 			sum+=stoi(line);
-			//cout<<(int)stoi(line)<<endl;
-			//cout<<sum<<endl;
-        }
-        //cout<<numbers.size(); 
-
-        //istringstream iss(line);
-        
-        //int a, b;
-        //if(!(iss >> a >> b)) {break;}
     }
-    for(vector<int>::iterator i=numbers.begin();i!=numbers.end();i++)
-		cout<<*i<<endl;
-	
-	//for(int i=0;i<numbers.at(i);i++)
-    //    cout<<numbers.at(i)<<endl;
-    return 0;
+    
+    cout<<"Greatest amount of calories: "<<findMostCalories(calorySums)<<endl;
+
+   return 0;
 }
