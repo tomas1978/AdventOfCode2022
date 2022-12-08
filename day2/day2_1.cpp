@@ -12,12 +12,12 @@ int main()
 
   while(getline(infile, line)) 
   {
-    cout<<line<<endl;
-    if(line.empty()) 
-	  {
+   // cout<<line<<endl;
+    if(!line.empty()) 
+	{
 	    gameInputs.push_back(line);
   	}
-    for(int i=0;i<10;i++)
-      cout<<gameInputs.at(i)<<endl;
+	
   }
+  cout<<gameInputs.size()<<endl;
 }
