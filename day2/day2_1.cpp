@@ -7,38 +7,37 @@ using namespace std;
 int evaulateGame(string game) 
 {
 	int score;
-	char player=game.at(0);
-	char opponent=game.at(2);
+	char opponent=game.at(0);
+	char player=game.at(2);
+	cout<<player<<opponent<<endl;
 
-	if(player=='A') //Player chooses rock
+	if(opponent=='A') 		//Opponent chooses rock
 	{
-		score=1;
-		if(opponent=='X') //Opponent chooses rock
-			score+=3;
-		if(opponent=='Y') //Opponent chooses paper
-			score+=0;
-		if(opponent=='Z') //Opponent chooses scissors
-			score+=6;
+		if(player=='X') 	//Player chooses rock , draw
+			score=1+3;
+		else if(player=='Y') //Player chooses paper, pl wins
+			score=2+6;
+		else 				 //Player chooses scissors
+			score=3+0;
 	}
-	if(player=='B') //Player chooses paper
+	else if(opponent=='B') 	//Opponent chooses paper
 	{
-		score=2;
-		if(opponent=='X')
-			score+=6;
-		if(opponent=='Y')
-			score+=3;
-		if(opponent=='Z')
-			score+=0;
+		if(player=='X')		//Player chooses rock, loses
+			score=1+0;
+		if(player=='Y')		//Player chooses paper, draw
+			score=2+3;
+		if(player=='Z')		//Player chooses scissors, wins
+			score=3+6;
 	}
-	else //Player chooses scissors
+	else 					//Opponent chooses scissors
 	{
 		score=3;
-		if(opponent=='X')
-			score+=0;
-		if(opponent=='Y')
-			score+=6;
-		if(opponent=='Z')
-			score+=0;
+		if(player=='X')		//Player chooses rock, wins
+			score=1+6;
+		if(player=='Y')		//Player chooses paper, loses
+			score=2+0;
+		if(player=='Z')		//PLayer chooses scissors, draw
+			score=3+3;
 	}
 	return score;
 }
@@ -62,7 +61,4 @@ int main()
 	totalScore+=evaulateGame(s);
   }
   cout<<"Total score: "<<totalScore<<endl;
-  cout<<"TESTING"<<endl;
-  string test="C Z";
-  cout<<"SCore: "<<evaulateGame(test)<<endl;
 }
