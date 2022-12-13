@@ -4,6 +4,11 @@
 #include<vector>
 using namespace std;
 
+int findStartOfPacket(string buffer) 
+{
+	return 0;
+}
+
 int main()
 {
   ifstream infile("input.txt");
