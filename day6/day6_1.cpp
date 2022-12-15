@@ -25,7 +25,21 @@ int main()
   {
 		buffer=line;
   }
+
+  string testStr1="bvwbjplbgvbhsrlpgdmjqwftvncz";
+  string testStr2="nppdvjthqldpwncqszvftbrmjlhg";
+  string testStr3="nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg";
+  string testStr4="zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw";
+
   
-  int markerPos = findStartOfPacket(buffer);
-  cout<<"Start of packet marker position: "<<markerPos<<endl;
+  int markerPos = findStartOfPacket(testStr1);
+  cout<<"Start of packet marker position (test1): "<<markerPos<<endl;
+  markerPos = findStartOfPacket(testStr2);
+  cout<<"Start of packet marker position (test2): "<<markerPos<<endl;
+  markerPos = findStartOfPacket(testStr3);
+  cout<<"Start of packet marker position (test3): "<<markerPos<<endl;
+  markerPos = findStartOfPacket(testStr4);
+  cout<<"Start of packet marker position (test4): "<<markerPos<<endl;
+  
+
 }
