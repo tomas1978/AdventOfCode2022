@@ -9,8 +9,9 @@ int findStartOfPacket(string buffer)
 	int markerPosition = -1;
 	for(int i=0;i<buffer.size()-4;i++)
 	{
-		if(buffer.at(i)==buffer.at(i+1) && buffer.at(i+1)==buffer.at(i+2) &&
-			buffer.at(i+2)==buffer.at(i+3))
+		//if(buffer.at(i)==buffer.at(i+1) && buffer.at(i+1)==buffer.at(i+2) &&
+		//	buffer.at(i+2)==buffer.at(i+3))
+    if(buffer.at(i)==buffer.at(i+1))
 			markerPosition=i;
 	}
 	return markerPosition;
