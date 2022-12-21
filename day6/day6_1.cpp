@@ -11,7 +11,8 @@ int findStartOfPacket(string buffer)
 	for(int i=0;i<buffer.size()-4;i++)
 	{
 		if(buffer.substr(i,i+i)!=buffer.substr(i+1,i+2) && buffer.substr(i,i+i)!=buffer.substr(i+1,i+2) && buffer.substr(i,i+i)!=buffer.substr(i+1,i+2))
-			markerPosition=i;							
+			cout<<buffer.substr(i,i+i)<<" "<<buffer.substr(i+1,i+2)<<endl;
+			markerPosition=i;		
 	}
 	return markerPosition; 
 }
@@ -34,7 +35,8 @@ int main()
   
   int markerPos = findStartOfPacket(testStr1);
   cout<<"Start of packet marker position (test1): "<<markerPos<<endl;
-  markerPos = findStartOfPacket(testStr2);
+/* 
+ markerPos = findStartOfPacket(testStr2);
   cout<<"Start of packet marker position (test2): "<<markerPos<<endl;
   markerPos = findStartOfPacket(testStr3);
   cout<<"Start of packet marker position (test3): "<<markerPos<<endl;
@@ -42,5 +44,5 @@ int main()
   cout<<"Start of packet marker position (test4): "<<markerPos<<endl;
   
   cout<<"Start of packet marker position (real message): "<<findStartOfPacket(buffer)<<endl;
-
+*/
 }
