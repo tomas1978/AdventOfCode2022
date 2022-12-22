@@ -10,9 +10,12 @@ int findStartOfPacket(string buffer)
 	int markerPosition = -1;
 	for(int i=0;i<buffer.size()-4;i++)
 	{
-		if(buffer.substr(i,i+i)!=buffer.substr(i+1,i+2) && buffer.substr(i,i+i)!=buffer.substr(i+1,i+2) && buffer.substr(i,i+i)!=buffer.substr(i+1,i+2))
-			cout<<buffer.substr(i,i+i)<<" "<<buffer.substr(i+1,i+2)<<endl;
-			markerPosition=i;		
+		if(buffer.substr(i,1)!=buffer.substr(i+1,1) && buffer.substr(i+1,1)!=buffer.substr(i+2,1) && buffer.substr(i+2,1)!=buffer.substr(i+3,1))
+		{
+			cout<<buffer.substr(i,1)<<" "<<endl;
+			markerPosition=i;	
+			break;
+		}
 	}
 	return markerPosition; 
 }
