@@ -10,12 +10,19 @@ int findStartOfPacket(string buffer)
 	int markerPosition = -1;
 	for(int i=0;i<buffer.size()-4;i++)
 	{
+		if(buffer.substr(i,1)!=buffer.substr(i+1,1))
+		{
+			cout<<buffer.substr(i,1)<<" "<<buffer.substr(i,1);
+			markerPosition=i;	
+		}
+		
+		/*
 		if(buffer.substr(i,1)!=buffer.substr(i+1,1) && buffer.substr(i+1,1)!=buffer.substr(i+2,1) && buffer.substr(i+2,1)!=buffer.substr(i+3,1))
 		{
 			cout<<buffer.substr(i,1)<<" "<<endl;
 			markerPosition=i;	
 			break;
-		}
+		}*/
 	}
 	return markerPosition; 
 }
@@ -29,17 +36,21 @@ int main()
   {
 		buffer=line;
   }
+  
+  string testStr0="aaaaaaaaaqwbbbbb";	//Character 10
 
   string testStr1="bvwbjplbgvbhsrlpgdmjqwftvncz";
   string testStr2="nppdvjthqldpwncqszvftbrmjlhg";
   string testStr3="nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg";
   string testStr4="zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw";
 
-  
+  int markerPos=findStartOfPacket(testStr0);
+  cout<<"Start of test package: in string "<<testStr0<<": "<<markerPos<<endl;
+  /*
   int markerPos = findStartOfPacket(testStr1);
   cout<<"Start of packet marker position (test1): "<<markerPos<<endl;
-/* 
- markerPos = findStartOfPacket(testStr2);
+
+  markerPos = findStartOfPacket(testStr2);
   cout<<"Start of packet marker position (test2): "<<markerPos<<endl;
   markerPos = findStartOfPacket(testStr3);
   cout<<"Start of packet marker position (test3): "<<markerPos<<endl;
