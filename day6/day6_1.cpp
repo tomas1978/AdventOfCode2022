@@ -13,7 +13,7 @@ int findStartOfPacket(string buffer)
 		if(buffer.substr(i,1)!=buffer.substr(i+1,1))
 		{
 			cout<<buffer.substr(i,1)<<" "<<buffer.substr(i,1);
-			markerPosition=i;	
+			return i;
 		}
 		
 		/*
@@ -37,7 +37,7 @@ int main()
 		buffer=line;
   }
   
-  string testStr0="aaaaaaaaaqwbbbbb";	//Character 10
+  string testStr0="aaaaaaaaaqwbbbbbzxccccccc";	//Character 10
 
   string testStr1="bvwbjplbgvbhsrlpgdmjqwftvncz";
   string testStr2="nppdvjthqldpwncqszvftbrmjlhg";
