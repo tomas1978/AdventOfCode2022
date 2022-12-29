@@ -10,13 +10,18 @@ int findStartOfPacket(string buffer)
 	int markerPosition = -1;
 	for(int i=0;i<buffer.size()-4;i++)
 	{
-		if(buffer.substr(i,1)!=buffer.substr(i+1,1) && buffer.substr(i+1,1)!=buffer.substr(i+2, 1) && buffer.substr(i+2,1)!=buffer.substr(i+3,1) && buffer.substr(i+1,3)!=buffer.substr(i+4,1))
+		if(buffer.substr(i,1)!=buffer.substr(i+1,1))
 		{
-			cout<<"foobar"<<endl;
-			//cout<<buffer.substr(i,1)<<" "<<buffer.substr(i,1);
-			return i;
+			if(buffer.substr(i+1,1)!=buffer.substr(i+2,1))
+			{
+				if(buffer.substr(i+2,1)!=buffer.substr(i+3,1))
+				{
+					cout<<"foobar"<<endl;
+					cout<<buffer.substr(i,1)<<" "<<buffer.substr(i+1,1)<<" "<<buffer.substr(i+2,1);
+					return i;
+				}
+			}
 		}
-		
 		/*
 		if(buffer.substr(i,1)!=buffer.substr(i+1,1) && buffer.substr(i+1,1)!=buffer.substr(i+2,1) && buffer.substr(i+2,1)!=buffer.substr(i+3,1))
 		{
@@ -38,7 +43,7 @@ int main()
 		buffer=line;
   }
   
-  string testStr0="aaaaaaaaaqwaaaabbbbbzxccccccc";	//Character 10
+  string testStr0="aaaaaaaaaqqwwsaaabbbbbzxccccccc";	//Character 10
 
   string testStr1="bvwbjplbgvbhsrlpgdmjqwftvncz";
   string testStr2="nppdvjthqldpwncqszvftbrmjlhg";
@@ -47,8 +52,8 @@ int main()
 
   int markerPos=findStartOfPacket(testStr0);
   cout<<"Start of test package: in string "<<testStr0<<": "<<markerPos<<endl;
-  /*
-  int markerPos = findStartOfPacket(testStr1);
+  
+  markerPos = findStartOfPacket(testStr1);
   cout<<"Start of packet marker position (test1): "<<markerPos<<endl;
 
   markerPos = findStartOfPacket(testStr2);
@@ -59,5 +64,5 @@ int main()
   cout<<"Start of packet marker position (test4): "<<markerPos<<endl;
   
   cout<<"Start of packet marker position (real message): "<<findStartOfPacket(buffer)<<endl;
-*/
+
 }
