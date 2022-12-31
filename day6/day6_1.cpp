@@ -35,6 +35,7 @@ int findStartOfPacket(string buffer)
 
 int main()
 {
+  cout<<"Happy New Year"<<endl;
   ifstream infile("input.txt");
   string line, buffer;
   
